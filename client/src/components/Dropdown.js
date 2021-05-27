@@ -1,13 +1,30 @@
-// import React from "react"
+// import React, { useState, useEffect } from "react";
+// import { useQuery } from "@apollo/client";
+// import { GET_AUTHORS } from "../lib/queries";
 
-// const Dropdown = (props) => {
-//     return (
-//         { props && props.options.map((optionItem) => (
-//               <option key={optionItem.id} value={optionItem.id}>
-//                 {optionItem.name}
-//               </option>
-//             ))}
-//     )
-// }
+// const AuthorsList = () => {
+//   const { loading, data } = useQuery(GET_AUTHORS);
+//   const [authorsList, setAuthors] = useState([]);
 
-// export default Dropdown
+//   useEffect(() => {
+//     if (data) {
+//       setAuthors(data.authors);
+//     }
+//   }, [data]);
+
+//   if (loading) return <option disabled>Loading authors</option>;
+
+//   return (
+//     <select>
+//       <option>Select author</option>
+//       {authorsList &&
+//         authorsList.map((author) => (
+//           <option key={author.id} value={author.id}>
+//             {author.name}
+//           </option>
+//         ))}
+//     </select>
+//   );
+// };
+
+// export default AuthorsList;

@@ -1,6 +1,6 @@
 import React from "react";
 // components
-import BookList from "./components/BookList";
+import BooksList from "./components/BooksList";
 import AddBookForm from "./components/AddBookForm";
 
 // Apollo
@@ -16,7 +16,7 @@ import { onError } from "@apollo/client/link/error";
 const errorLink = onError(({ graphqlErrors, networkError }) => {
   if (graphqlErrors) {
     graphqlErrors.map(({ message, location, path }) => {
-      alert(`Graphql error ${message}`);
+     return alert(`Graphql error ${message}`);
     });
   }
 });
@@ -39,7 +39,7 @@ function App() {
     <ApolloProvider client={client}>
       <div className="bg-gray-200 h-screen w-screen font-nunito">
         <h1>Ninja reading list</h1>
-        <BookList />
+        <BooksList />
         <AddBookForm />
       </div>
     </ApolloProvider>
