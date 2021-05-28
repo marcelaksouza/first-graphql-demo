@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useQuery } from "@apollo/client";
-import { GET_AUTHORS } from "../lib/queries";
+import { GET_AUTHORS } from "../lib/queries/queries";
 
-const AuthorsList = () => {
+const AuthorsList = (props) => {
   const { loading, data } = useQuery(GET_AUTHORS);
   const [authorsList, setAuthors] = useState([]);
 
@@ -17,14 +17,13 @@ const AuthorsList = () => {
     else {
       return authorsList.map((author) => {
         return (
-          <option key={author.id} value={author.id}>
+          <option key={author.id} value={author.id} > 
             {author.name}
           </option>
         );
       });
     }
   };
-
   return displayAuthors();
 };
 

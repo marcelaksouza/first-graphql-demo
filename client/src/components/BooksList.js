@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useQuery } from "@apollo/client";
-import { GET_BOOKS } from "../lib/queries";
+import { GET_BOOKS } from "../lib/queries/queries";
 import Book from "./Book";
 
 const BookList = () => {
