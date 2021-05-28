@@ -2,10 +2,11 @@ import React, { useState, useEffect } from "react";
 import { useQuery } from "@apollo/client";
 import { GET_AUTHORS } from "../lib/queries/queries";
 
-const AuthorsList = (props) => {
+const AuthorsList = () => {
   const { loading, data } = useQuery(GET_AUTHORS);
   const [authorsList, setAuthors] = useState([]);
 
+  //Update dropdown
   useEffect(() => {
     if (data) {
       setAuthors(data.authors);
