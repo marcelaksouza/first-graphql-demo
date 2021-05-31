@@ -35,36 +35,37 @@ const AddBookForm = () => {
       authorId:enteredBookAuthor
     }
     try {
-      const result = await addBook({variables: newBook, refetchQueries:[{query:GET_BOOKS}] })  
-      console.log(result)
+      await addBook({variables: newBook, refetchQueries:[{query:GET_BOOKS}] })  
+      console.log(data)
     } catch (error) {
       console.log(error)
     }
     setBookName("");
     setBookGenre("");
-    // how to set to the default value? 
     setBookAuthor("");
   }
 
   return (
-      <form className="w-full p-2 form">
-        <div className="">
-          <Label name="Book Name:" />
-          <Imput value={enteredBookName} inputHandler={nameChangeHandler}/>
+      <form className="absolute bottom-0 left-0 sm:w-full md:w-1/2 lg:w-1/2 p-2 shadow bg-white border border-pink-200">
+        <div className="p-2 grid grid-cols-2 gap-4">
+          <Label className=" " name="Book Name:" />
+          <Imput className=" " value={enteredBookName} inputHandler={nameChangeHandler}/>
         </div>
-        <div className="">
+        <div className="p-2 grid grid-cols-2 gap-4">
           <Label name="Genre:" />
           <Imput value={enteredBookGenre} inputHandler={genreChangeHandler}/>
         </div>
-        <div className="">
+        <div className="p-2 grid grid-cols-2 gap-4">
           <Label name="Author:" />
           <select onChange={authorChangeHandler} value={enteredBookAuthor}>
             <option>Select author</option>
             <AuthorsList/>
           </select>
         </div>
-
-        <PlusButton clickHandler={clickHandler}/>
+        <div className="p-2">
+          <PlusButton clickHandler={clickHandler}/>
+        </div>
+        
       </form>
   );
 };
