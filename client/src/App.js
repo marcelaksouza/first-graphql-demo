@@ -37,9 +37,9 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <div className="bg-gray-200 h-screen w-screen font-nunito">
-        <h1>Ninja reading list</h1>
-        <BooksList />
+      <div className="font-nunito bg-gray-100 ">
+        <h1 className="justify-self-center text-gray-800 box-border">Reading list</h1>
+        <BooksList className=""/>
         <AddBookForm />
       </div>
     </ApolloProvider>

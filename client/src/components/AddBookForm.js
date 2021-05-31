@@ -4,7 +4,7 @@ import Imput from "./Imput";
 import PlusButton from "./PlusButton";
 import AuthorsList from "./AuthorsList";
 import { ADD_BOOK } from "../lib/queries/mutation";
-import { gql, useMutation } from '@apollo/client';
+import { useMutation } from '@apollo/client';
 import { GET_BOOKS } from "../lib/queries/queries";
 
 
@@ -47,16 +47,16 @@ const AddBookForm = () => {
   }
 
   return (
-      <form id="add-book">
-        <div className="field">
+      <form className="w-full p-2 form">
+        <div className="">
           <Label name="Book Name:" />
           <Imput value={enteredBookName} inputHandler={nameChangeHandler}/>
         </div>
-        <div className="field">
+        <div className="">
           <Label name="Genre:" />
           <Imput value={enteredBookGenre} inputHandler={genreChangeHandler}/>
         </div>
-        <div className="field">
+        <div className="">
           <Label name="Author:" />
           <select onChange={authorChangeHandler} value={enteredBookAuthor}>
             <option>Select author</option>
