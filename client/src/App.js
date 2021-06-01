@@ -60,10 +60,11 @@ function App() {
           <AddBookForm />
         </div>
         <div className="bg-pink-800">
-          <h1 className="p-4 text-2xl flex justify-center text-white box-border">
+          <h1 className="p-4 text-2xl flex justify-center text-white">
             Book Details
           </h1>
           {selectedBook && <BookDetails bookId={selectedBook} />}
+          {!selectedBook && <p className="p-4 text-white text-xl">Select a book...</p>}
         </div>
       </div>
     </ApolloProvider>
