@@ -6,7 +6,7 @@ import AuthorsList from "./AuthorsList";
 import { ADD_BOOK } from "../lib/queries/mutation";
 import { useMutation } from '@apollo/client';
 import { GET_BOOKS } from "../lib/queries/queries";
-
+import DropDownOptions from "./DropDownOptions"
 
 const AddBookForm = () => {
   const [addBook, {data}] = useMutation(ADD_BOOK);
@@ -53,7 +53,12 @@ const AddBookForm = () => {
         </div>
         <div className="p-2 grid grid-cols-2 gap-4">
           <Label name="Genre:" />
-          <Imput value={enteredBookGenre} inputHandler={genreChangeHandler}/>
+          <select onChange={genreChangeHandler} value={enteredBookGenre}>
+            <option>Select genre</option>
+            <DropDownOptions genres={["Fantasy","Sci-fi"]}/>
+          </select>
+          
+          {/* <Imput value={enteredBookGenre} inputHandler={genreChangeHandler}/> */}
         </div>
         <div className="p-2 grid grid-cols-2 gap-4">
           <Label name="Author:" />
