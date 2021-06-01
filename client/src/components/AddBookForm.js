@@ -41,8 +41,8 @@ const AddBookForm = () => {
       console.log(error)
     }
     setBookName("");
-    setBookGenre("");
-    setBookAuthor("");
+    setBookGenre("Select Genre");
+    setBookAuthor("Select Author");
   }
 
   return (
