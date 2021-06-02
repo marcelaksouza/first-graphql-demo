@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import Label from "./Label";
-import Imput from "./Imput";
+import Label from "./form/Label";
+import Imput from "./form/Imput";
 import PlusButton from "./PlusButton";
-import AuthorsList from "./AuthorsList";
+import AuthorsList from "./form/AuthorsList";
 import { ADD_BOOK } from "../lib/queries/mutation";
 import { useMutation } from '@apollo/client';
 import { GET_BOOKS } from "../lib/queries/queries";
-import DropDownOptions from "./DropDownOptions"
+import DropDownOptions from "./form/DropDownOptions"
 
 const AddBookForm = () => {
   const [addBook, {data}] = useMutation(ADD_BOOK);

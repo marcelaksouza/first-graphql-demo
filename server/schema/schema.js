@@ -1,5 +1,4 @@
 const graphql = require("graphql");
-const _ = require("lodash");
 const Book = require('../models/book');
 const Author = require('../models/author');
 
@@ -94,7 +93,7 @@ const Mutation = new GraphQLObjectType({
       }
     },
 
-    AddBook:{
+    addBook:{
       type: BookType,
       args: {
         name: { type: new GraphQLNonNull(GraphQLString) },
@@ -110,7 +109,51 @@ const Mutation = new GraphQLObjectType({
         return book.save();
       }
     },
-  }
+
+    deleteBook:{
+      type: BookType,
+      args:{
+        id:{ type: new GraphQLNonNull(GraphQLID) }
+      },
+      resolve: async function (parent,args) {
+        const deletedBook =  await Book.findByIdAndDelete(args.id)
+        if(!deletedBook) {
+          throw new Error('Error');
+       }
+       return deletedBook
+      }
+    },
+
+    updateBook:{
+      type: BookType,
+      args:{
+        id:{ type: new GraphQLNonNull(GraphQLID) },
+        name: { type: GraphQLString },
+        genre: { type: GraphQLString },
+        authorId: { type: GraphQLID } 
+      },
+      resolve: async function (parent,args){
+
+        let updateBookBoody = {};
+
+        if(args.name){
+          updateBookBoody.name = args.name; 
+        }
+        if(args.genre){
+          updateBookBoody.genre = args.genre; 
+        }
+        if(args.authorId){
+          updateBookBoody.authorId = args.authorId; 
+        }
+
+        const updateBookInfo = await Book.findByIdAndUpdate(args.id,updateBookBoody,{new: true});
+        if(!updateBookInfo) {
+            throw new Error('Error');
+        }
+        return updateBookInfo;
+      }  
+    }
+  },
 })
 
 module.exports = new GraphQLSchema({
