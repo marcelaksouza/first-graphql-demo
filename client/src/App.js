@@ -9,8 +9,8 @@ import React, { useState } from 'react';
 import BooksList from './components/BooksList';
 import AddBookForm from './components/AddBookForm';
 import BookDetails from './components/BookDetails';
-import DeleteBook from './components/DeleteBook';
-import UpdateBook from './components/UpdateBook';
+import DeleteBookButton from './components/DeleteBookButton';
+import UpdateBookButton from './components/UpdateBookButton';
 import client from './lib/client';
 import {ApolloProvider} from '@apollo/client';
 
@@ -56,8 +56,8 @@ function App() {
             <p className="p-4 text-white text-xl">Select a book...</p>
           )}
           <div className="flex flex-row justify-center">
-            {selectedBook && <UpdateBook />}
-            {selectedBook && <DeleteBook />}
+            {selectedBook && <UpdateBookButton bookId={selectedBook}/>}
+            {selectedBook && <DeleteBookButton bookId={selectedBook}/>}
           </div>
         </div>
       </div>

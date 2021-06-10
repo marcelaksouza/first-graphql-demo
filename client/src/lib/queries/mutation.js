@@ -9,3 +9,22 @@ mutation addBook($name: String!, $genre: String!, $authorId: ID!) {
     }
   }
 `;
+
+export const EDIT_BOOK = gql`
+mutation updateBook($id: ID!, $name: String!, $genre: String!) {
+  updateBook (id: $id, name: $name, genre:$genre) {
+      id
+      name
+      genre
+    }
+  }
+`;
+
+export const DELETE_BOOK = gql`
+mutation deleteBook($id: ID!) {
+  deleteBook (id: $id) {
+    id  
+    name
+    }
+  }
+`;

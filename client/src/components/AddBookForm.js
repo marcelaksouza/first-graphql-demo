@@ -68,7 +68,7 @@ const AddBookForm = () => {
           </select>
         </div>
         <div className="p-2">
-          <PlusButton clickHandler={clickHandler}/>
+          <PlusButton bookId={clickHandler}/>
         </div>
         
       </form>
