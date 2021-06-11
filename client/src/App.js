@@ -18,8 +18,8 @@ import { ApolloProvider } from "@apollo/client";
 function App() {
   const [selectedBook, setSelectedBook] = useState({ data: null });
 
-  const handleClick = (book) => {
-    setSelectedBook({ data: book });
+  const handleClick = (data) => {
+    setSelectedBook({ data: data });
   };
 
   return (
@@ -55,7 +55,7 @@ function App() {
               <UpdateBookButton bookId={selectedBook.data.id} />
             )}
             {selectedBook.data && (
-              <DeleteBookButton bookId={selectedBook.data.id} />
+              <DeleteBookButton bookId={selectedBook.data.id} setDataNull={handleClick}/>
             )}
           </div>
         </div>

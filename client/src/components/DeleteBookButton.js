@@ -20,6 +20,8 @@ const DeleteBookButton = (props) => {
     } catch (error) {
       console.log(error);
     }
+
+    props.setDataNull(null);
   };
 
   return (
