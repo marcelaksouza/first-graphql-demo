@@ -15,12 +15,10 @@ const BookList = (props) => {
         data &&
         data.books.map((book) => {
           return (
-            <Book
-              handleClick={props.handleClick}
-              key={book.id}
-              name={book.name}
-              genre={book.genre}
-              id={book.id}
+            <Book 
+            handleClick={props.handleClick} 
+            key={book.id} 
+            data={book} 
             />
           );
         })

@@ -9,6 +9,7 @@ import { GET_BOOKS } from "../lib/queries/queries";
 import DropDownOptions from "./form/DropDownOptions"
 
 const AddBookForm = () => {
+  // eslint-disable-next-line
   const [addBook, {data}] = useMutation(ADD_BOOK);
 
   const [enteredBookName, setBookName] = useState("");
@@ -35,8 +36,7 @@ const AddBookForm = () => {
       authorId:enteredBookAuthor
     }
     try {
-      await addBook({variables: newBook, refetchQueries:[{query:GET_BOOKS}] })  
-      console.log(data)
+      await addBook({variables: newBook, refetchQueries:[{query:GET_BOOKS}] })
     } catch (error) {
       console.log(error)
     }
@@ -46,7 +46,7 @@ const AddBookForm = () => {
   }
 
   return (
-      <form className="absolute bottom-0 left-0 sm:w-full md:w-1/2 lg:w-1/2 p-2 shadow bg-white border border-pink-200">
+      <form className="md:absolute md:bottom-0 md:left-0 md:w-1/2 lg:w-1/2 p-2 shadow bg-white border border-pink-200">
         <div className="p-2 grid grid-cols-2 gap-4">
           <Label className=" " name="Book Name:" />
           <Imput className=" " value={enteredBookName} inputHandler={nameChangeHandler}/>
@@ -68,7 +68,7 @@ const AddBookForm = () => {
           </select>
         </div>
         <div className="p-2">
-          <PlusButton bookId={clickHandler}/>
+          <PlusButton clickHandler={clickHandler}/>
         </div>
         
       </form>

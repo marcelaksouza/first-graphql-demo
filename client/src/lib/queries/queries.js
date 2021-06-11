@@ -22,8 +22,12 @@ export const GET_BOOK = gql`
 export const GET_BOOKS = gql`
   {
     books {
-      name
       id
+      name
+      genre
+      author{
+        name
+      }
     }
   }
 `;

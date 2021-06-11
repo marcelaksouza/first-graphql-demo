@@ -14,7 +14,7 @@ import {
     }
   });
   
-  const getLink = (): ApolloLink => {
+  const getLink = () => {
     return new HttpLink({
       uri: 'http://localhost:4000/graphql',
     });
